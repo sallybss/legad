@@ -2,3 +2,497 @@
 Theme Name: Legad shop
 Author: Sali Bseso
 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FBFAF8;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* ---------------------------------- */
+/* ========== NAVIGATION ============ */
+/* ---------------------------------- */
+
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 60px;
+    background: transparent;
+}
+
+.nav-left img {
+    height: 40px;
+    width: auto;
+}
+
+.nav-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+ul.menu li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+ul.menu li a:hover {
+    opacity: 0.7;
+}
+
+/* Right side icons */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.icon {
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+/* Burger (hamburger) icon */
+.menu-icon {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Side Menu (mobile navigation) */
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    background-color: #FBFAF8;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.side-menu a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.side-menu a:hover {
+    color: #698d58;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color: #FF6214;
+}
+
+/* ---------------------------------- */
+/* ========== HERO VIDEO ============ */
+/* ---------------------------------- */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+}
+
+.hero .videooverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---------------------------------- */
+/* ========== CATEGORY GRID ========= */
+/* ---------------------------------- */
+
+.category-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 60px 0 30px;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+}
+
+.grid-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-transform: uppercase;
+}
+
+.grid-item:hover .overlay {
+    opacity: 1;
+}
+
+/* ---------------------------------- */
+/* ========= TOP PRODUCTS =========== */
+/* ---------------------------------- */
+
+.top-products {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-box {
+    display: block;
+    overflow: hidden;
+}
+
+.product-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-box:hover img {
+    transform: scale(1.05);
+}
+
+.product-description {
+    max-width: 700px;
+    margin: 40px auto;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* ---------------------------------- */
+/* ======= EDITORIAL IMAGES ========= */
+/* ---------------------------------- */
+
+.editorial-images {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.editorial-images img {
+    display: block;
+    object-fit: cover;
+}
+
+.editorial-images img.left-img {
+    width: 300px;
+    height: auto;
+    margin-top: 60px;
+}
+
+.editorial-images img.right-img {
+    width: 450px;
+    height: auto;
+}
+
+/* ---------------------------- */
+/* ======== FOOTER =========== */
+/* ---------------------------- */
+
+.site-footer {
+    background: #fff;
+    border-top: 2px solid #000;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: flex-start;
+    gap: 80px;
+    margin-bottom: 50px;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 6px;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-col ul li a:hover {
+    opacity: 0.7;
+}
+
+.newsletter {
+    margin-top: 40px;
+}
+
+.newsletter h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.newsletter p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    max-width: 500px;
+}
+
+.newsletter-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 600px;
+}
+
+.newsletter-form input[type="email"] {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 2px solid #000;
+    background: transparent;
+    outline: none;
+}
+
+.newsletter-form button {
+    padding: 8px 24px;
+    font-size: 16px;
+    background: transparent;
+    border: 2px solid #000;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Right vertical label */
+.footer-right-label {
+    position: absolute;
+    top: 0;
+    right: -60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform: rotate(90deg);
+    transform-origin: right top;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.scroll-marquee {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 30px;
+    overflow: hidden;
+    z-index: 5;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.marquee-inner {
+    display: flex;
+    flex-direction: column;
+    animation: scroll-vertical 10s linear infinite;
+}
+
+.marquee-inner span {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    color: #000;
+}
+
+@keyframes scroll-vertical {
+    0% {
+        transform: translateY(0%);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+    .footer-columns {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .newsletter h2 {
+        font-size: 26px;
+    }
+
+    .footer-right-label {
+        display: none;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .newsletter-form button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+/* ---------------------------------- */
+/* ========== RESPONSIVE ============ */
+/* ---------------------------------- */
+
+@media screen and (max-width: 768px) {
+    .nav-center {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .editorial-images {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .editorial-images img.left-img,
+    .editorial-images img.right-img {
+        width: 90%;
+        margin-top: 20px;
+    }
+}
