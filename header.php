@@ -9,16 +9,20 @@
 </head>
 <body <?php body_class(); ?>>
 
-<!-- NAVIGATION -->
-<div class="nav">
-    <!-- Left: Logo -->
+<?php
+$use_dark_nav = is_page([
+    'contact', 'cart', 'faq', 'size-guide', 'my-account', 'checkout',
+    'privacy-policy', 'refund_returns', 'care-tips', 'b2b', 'shop'
+  ]) || is_singular('product');?>
+
+<div class="nav <?php echo $use_dark_nav ? 'dark-nav' : 'light-nav'; ?>">
+
     <div class="nav-left">
         <a href="<?php echo home_url(); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="<?php bloginfo('name'); ?> Logo">
+            <img src="<?php echo get_template_directory_uri(); ?>/images/<?php echo $use_dark_nav ? 'logo.png' : 'logo-white.png'; ?>" alt="<?php bloginfo('name'); ?> Logo">
         </a>
     </div>
 
-    <!-- Center: WordPress Menu -->
     <div class="nav-center">
         <?php
         wp_nav_menu(array(
@@ -32,14 +36,25 @@
         ?>
     </div>
 
-    <!-- Right: Icons + Mobile Burger -->
-    <div class="nav-right">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/shopping-cart.png" alt="Cart" class="icon">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/user.png" alt="User" class="icon">
-        <div class="menu-icon" onclick="toggleSideMenu()">&#9776;</div>
-    </div>
+<div class="nav-right">
+    <a href="<?php echo esc_url(wc_get_cart_url()); ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/<?php echo $use_dark_nav ? 'shopping-cart.png' : 'white-cart.png'; ?>" alt="Cart" class="icon">
+    </a>
 
-    <!-- Side Menu for Mobile -->
+<?php if (is_user_logged_in()): ?>
+  <a href="<?php echo esc_url(get_permalink(get_option('woocommerce_myaccount_page_id'))); ?>">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/<?php echo $use_dark_nav ? 'user.png' : 'profile-white.png'; ?>" alt="Account" class="icon">
+  </a>
+<?php else: ?>
+  <a href="<?php echo esc_url(site_url('/sign-in')); ?>">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/<?php echo $use_dark_nav ? 'user.png' : 'profile-white.png'; ?>" alt="Login" class="icon">
+  </a>
+<?php endif; ?>
+
+    <div class="menu-icon" onclick="toggleSideMenu()">&#9776;</div>
+</div>
+
+<!-- Side Menu -->
     <div id="side-menu" class="side-menu">
         <a href="javascript:void(0)" class="closebtn" onclick="toggleSideMenu()">&times;</a>
         <?php
@@ -56,11 +71,13 @@
 </div>
 
 <?php wp_footer(); ?>
+
 <script>
     function toggleSideMenu() {
         const sideMenu = document.getElementById('side-menu');
         sideMenu.style.width = sideMenu.style.width === '250px' ? '0' : '250px';
     }
 </script>
+
 </body>
-</html>
+</html> 
