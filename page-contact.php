@@ -20,7 +20,9 @@ $contact_phone   = get_field('contact_phone');
       <p><?php echo esc_html($contact_intro); ?></p>
     <?php endif; ?>
 
-    <?php echo do_shortcode('[contact-form-7 id="f64d47a" title="Contact form 1"]'); ?>
+    <div class="contact-form">
+      <?php echo do_shortcode('[contact-form-7 id="f64d47a" title="Contact form 1"]'); ?>
+    </div>
   </section>
 
   <aside class="contact-aside">

@@ -21,7 +21,8 @@ get_header();
       <hr>
 
       <div class="summary-row">
-        <?php wc_cart_totals_shipping_html(); ?>
+        <span>Shipping</span>
+        <span><?php wc_cart_totals_shipping_html(); ?></span>
       </div>
 
       <hr>

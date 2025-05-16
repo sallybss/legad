@@ -11,18 +11,18 @@ $about_image = get_field('about_image');
 
 <?php if ($about_hero): ?>
   <div class="about-hero">
-    <img src="<?php echo $about_hero['url']; ?>" alt="About hero">
+    <img src="<?php echo esc_url($about_hero['url']); ?>" alt="About hero">
   </div>
 <?php endif; ?>
 
 <section class="about-content">
   <div class="about-inner">
     <div class="about-text">
-      <h2><?php echo $about_title; ?></h2>
-      <p><?php echo $about_text; ?></p>
+      <h2><?php echo esc_html($about_title); ?></h2>
+      <p><?php echo esc_html($about_text); ?></p>
     </div>
     <div class="about-image">
-      <img src="<?php echo $about_image['url']; ?>" alt="Crafting photo">
+      <img src="<?php echo esc_url($about_image['url']); ?>" alt="Crafting photo">
     </div>
   </div>
 </section>

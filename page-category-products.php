@@ -1,10 +1,10 @@
 <?php
 get_header();
 
-$hero_image      = get_field('category_hero_image'); 
-$category_title  = get_field('category_title');
+$hero_image       = get_field('category_hero_image'); 
+$category_title   = get_field('category_title');
 $current_cat_slug = basename(get_permalink());
-$selected_sort   = isset($_GET['orderby']) ? sanitize_text_field($_GET['orderby']) : '';
+$selected_sort    = isset($_GET['orderby']) ? sanitize_text_field($_GET['orderby']) : '';
 ?>
 
 <div class="category-template-page">
@@ -24,13 +24,13 @@ $selected_sort   = isset($_GET['orderby']) ? sanitize_text_field($_GET['orderby'
     <div class="shop-filter-left">
       <label for="product_cat">Categories:</label>
       <?php wp_dropdown_categories([
-        'taxonomy' => 'product_cat',
-        'name' => 'product_cat',
-        'orderby' => 'name',
-        'hierarchical' => true,
-        'show_option_all' => 'All',
-        'value_field' => 'slug',
-        'selected' => $current_cat_slug
+        'taxonomy'         => 'product_cat',
+        'name'             => 'product_cat',
+        'orderby'          => 'name',
+        'hierarchical'     => true,
+        'show_option_all'  => 'All',
+        'value_field'      => 'slug',
+        'selected'         => $current_cat_slug
       ]); ?>
     </div>
 
