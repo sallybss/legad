@@ -3,7 +3,7 @@ get_header();
 
 $hero_image       = get_field('category_hero_image'); 
 $category_title   = get_field('category_title');
-$current_cat_slug = basename(get_permalink());
+$product_cat_slug = get_field('product_category_slug', get_queried_object_id());
 $selected_sort    = isset($_GET['orderby']) ? sanitize_text_field($_GET['orderby']) : '';
 ?>
 
@@ -30,7 +30,7 @@ $selected_sort    = isset($_GET['orderby']) ? sanitize_text_field($_GET['orderby
         'hierarchical'     => true,
         'show_option_all'  => 'All',
         'value_field'      => 'slug',
-        'selected'         => $current_cat_slug
+        'selected' => $product_cat_slug
       ]); ?>
     </div>
 
@@ -70,7 +70,7 @@ $selected_sort    = isset($_GET['orderby']) ? sanitize_text_field($_GET['orderby
           'tax_query'      => [[
             'taxonomy' => 'product_cat',
             'field'    => 'slug',
-            'terms'    => $current_cat_slug
+            'terms' => $product_cat_slug
           ]]
         ];
 
