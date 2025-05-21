@@ -1,4 +1,7 @@
 <?php
+/*
+Template Name: Category Products
+*/
 get_header();
 
 $page_id = get_queried_object_id();
