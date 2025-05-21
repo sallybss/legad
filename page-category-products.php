@@ -1,8 +1,10 @@
 <?php
 get_header();
 
-$hero_image       = get_field('category_hero_image'); 
-$category_title   = get_field('category_title');
+$page_id = get_queried_object_id();
+$hero_image     = get_field('category_hero_image', $page_id); 
+$category_title = get_field('category_title', $page_id);
+
 $current_cat_slug = basename(get_permalink());
 $selected_sort    = isset($_GET['orderby']) ? sanitize_text_field($_GET['orderby']) : '';
 ?>
