@@ -1,11 +1,10 @@
-<?php get_header(); ?>
+<?php
+get_header();
 
-<main class="homepage">
-  <?php
+if ( have_posts() ) :
     while ( have_posts() ) : the_post();
-      the_content();
+        the_content(); 
     endwhile;
-  ?>
-</main>
+endif;
 
-<?php get_footer(); ?>
+get_footer();
