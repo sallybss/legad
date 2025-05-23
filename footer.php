@@ -67,6 +67,11 @@
       </div>
     </div>
 
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+      <p>&copy; <?php echo date('Y'); ?> LEGAD STUDIO. All rights reserved. CVR: 12345678</p>
+    </div>
+
   </div>
 </footer>
 

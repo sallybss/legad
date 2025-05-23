@@ -550,6 +550,13 @@ ul.menu li a:hover {
     color: #000;
 }
 
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 40px;
+}
+
 /* ---------------------------------- */
 /* ============= ABOUT ============== */
 /* ---------------------------------- */
