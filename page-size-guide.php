@@ -18,7 +18,8 @@ get_header();
     <!-- Tab Navigation -->
     <div class="tab-nav">
         <?php foreach ($tabs as $index => $tab): ?>
-            <button class="tab-link <?php if ($index === 0) echo 'active'; ?>" onclick="openTab(event, 'tab-<?php echo esc_attr($index); ?>')">
+            <button class="tab-link <?php if ($index === 0) echo 'active'; ?>"
+                    onclick="openTab(event, 'tab-<?php echo esc_attr($index); ?>')">
                 <?php echo esc_html($tab['tab_title']); ?>
             </button>
         <?php endforeach; ?>
@@ -40,8 +41,10 @@ get_header();
                             <table class="size-table">
                                 <thead>
                                     <tr>
-                                        <?php foreach ($tab['size_table'][0] as $key => $value): ?>
-                                            <th><?php echo esc_html(ucwords(str_replace('_', ' ', $key))); ?></th>
+                                        <?php
+                                        $custom_headers = explode('|', $tab['table_headers']);
+                                        foreach ($custom_headers as $header): ?>
+                                            <th><?php echo esc_html(trim($header)); ?></th>
                                         <?php endforeach; ?>
                                     </tr>
                                 </thead>
@@ -57,7 +60,9 @@ get_header();
                             </table>
                         <?php endif; ?>
 
-                        <p><?php echo esc_html($tab['tab_text']); ?></p>
+                        <?php if (!empty($tab['tab_text'])): ?>
+                            <p><?php echo esc_html($tab['tab_text']); ?></p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -71,8 +76,8 @@ function openTab(evt, tabId) {
     const tabs = document.querySelectorAll('.tab-content');
     const buttons = document.querySelectorAll('.tab-link');
 
-    tabs.forEach(t => t.classList.remove('active'));
-    buttons.forEach(b => b.classList.remove('active'));
+    tabs.forEach(tab => tab.classList.remove('active'));
+    buttons.forEach(btn => btn.classList.remove('active'));
 
     document.getElementById(tabId).classList.add('active');
     evt.currentTarget.classList.add('active');
